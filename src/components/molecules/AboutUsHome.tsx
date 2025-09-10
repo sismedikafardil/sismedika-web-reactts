@@ -43,60 +43,58 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 						{/* left: heading + paragraph + stats */}
 						<div className="space-y-8">
 							<div>
-								<h2 className="text-3xl font-extrabold text-slate-900">Empowering your success with our solutions</h2>
+								<h2 className="text-3xl font-extrabold text-slate-900">Transforming healthcare through smarter digital solutions</h2>
 								<p className="mt-4 text-slate-600 max-w-2xl">
-									Struggling to stay organized, our users found the perfect solution with Sismedika. By
-									simplifying hospital workflows and boosting team collaboration, they've achieved more in less
-									time.
+									Hospitals and clinics across Indonesia trust SISMEDIKA to simplify complex workflows, from admissions to EMR. By streamlining operations and enabling seamless collaboration, our healthtech solutions empower medical teams to focus on what matters most—better patient care.
 								</p>
 							</div>
 							{/* stats as cards */}
 							<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-								{/* downloads */}
+								{/* hospitals digitalized */}
 								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
 									<div className="flex items-start gap-3">
 										<div className="h-10 w-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center">
-											<i className="fa-solid fa-download" aria-hidden="true"></i>
+											<i className="fa-solid fa-hospital" aria-hidden="true"></i>
 										</div>
 										<div>
-											<div className="text-3xl font-extrabold leading-none text-[#29AB9A]">15k</div>
-											<div className="text-sm text-slate-600 mt-1">Global downloads</div>
+											<div className="text-3xl font-extrabold leading-none text-[#29AB9A]">100+</div>
+											<div className="text-sm text-slate-600 mt-1">Hospitals digitalized</div>
 										</div>
 									</div>
 								</div>
-								{/* ROI */}
+								{/* satisfied stakeholders */}
+								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
+									<div className="flex items-start gap-3">
+										<div className="h-10 w-10 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center">
+											<i className="fa-solid fa-users" aria-hidden="true"></i>
+										</div>
+										<div>
+											<div className="text-3xl font-extrabold leading-none text-cyan-600">10.000+</div>
+											<div className="text-sm text-slate-600 mt-1">Satisfied stakeholders</div>
+										</div>
+									</div>
+								</div>
+								{/* patient records managed */}
+								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
+									<div className="flex items-start gap-3">
+										<div className="h-10 w-10 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center">
+											<i className="fa-solid fa-file-medical" aria-hidden="true"></i>
+										</div>
+										<div>
+											<div className="text-3xl font-extrabold leading-none text-violet-600">5M+</div>
+											<div className="text-sm text-slate-600 mt-1">Patient records managed</div>
+										</div>
+									</div>
+								</div>
+								{/* BPJS claims resolved */}
 								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
 									<div className="flex items-start gap-3">
 										<div className="h-10 w-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
-											<i className="fa-solid fa-dollar-sign" aria-hidden="true"></i>
+											<i className="fa-solid fa-circle-check" aria-hidden="true"></i>
 										</div>
 										<div>
-											<div className="text-3xl font-extrabold leading-none text-emerald-600">$20M</div>
-											<div className="text-sm text-slate-600 mt-1">Return on investment</div>
-										</div>
-									</div>
-								</div>
-								{/* reviews */}
-								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
-									<div className="flex items-start gap-3">
-										<div className="h-10 w-10 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center">
-											<i className="fa-solid fa-star" aria-hidden="true"></i>
-										</div>
-										<div>
-											<div className="text-3xl font-extrabold leading-none text-amber-500">200+</div>
-											<div className="text-sm text-slate-600 mt-1">5-star reviews</div>
-										</div>
-									</div>
-								</div>
-								{/* projects */}
-								<div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-md transition-shadow">
-									<div className="flex items-start gap-3">
-										<div className="h-10 w-10 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center">
-											<i className="fa-solid fa-briefcase" aria-hidden="true"></i>
-										</div>
-										<div>
-											<div className="text-3xl font-extrabold leading-none text-orange-500">500</div>
-											<div className="text-sm text-slate-600 mt-1">Projects completed</div>
+											<div className="text-3xl font-extrabold leading-none text-emerald-600">80%+</div>
+											<div className="text-sm text-slate-600 mt-1">BPJS claims resolved</div>
 										</div>
 									</div>
 								</div>
