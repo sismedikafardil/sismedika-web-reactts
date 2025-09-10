@@ -59,11 +59,13 @@ export default function BannerV1({
         </div>
 
         <div className="flex justify-center md:justify-end">
-          {imageSrc ? (
-            <img src={imageSrc} alt={imageAlt} className="w-full max-w-md rounded-lg" />
-          ) : (
-            <div className="w-full max-w-md h-44 md:h-64 bg-gradient-to-r from-emerald-100 to-sky-100 rounded-lg" />
-          )}
+          <div className="p-[10%]">
+            {imageSrc ? (
+              <img src={imageSrc} alt={imageAlt} className="w-[100%] max-w-md rounded-lg" />
+            ) : (
+              <div className="w-[80%] max-w-md h-44 md:h-64 bg-gradient-to-r from-emerald-100 to-sky-100 rounded-lg" />
+            )}
+          </div>
         </div>
       </div>
     </section>

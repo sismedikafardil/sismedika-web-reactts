@@ -1,25 +1,28 @@
+import FooterTopNav from './footer/FooterTopNav'
+import FooterColumn from './footer/FooterColumn'
+import FooterSocials from './footer/FooterSocials'
+import FooterBottomNav from './footer/FooterBottomNav'
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-slate-900 text-slate-200 mt-12 mt-auto" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-      <div className="container mx-auto py-8 flex flex-col md:flex-row items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-slate-900 font-bold">S</div>
-          <div>
-            <div className="font-semibold">Sismedika</div>
-            <div className="text-sm text-slate-400">Empowering healthcare with digital tools</div>
+    <footer role="contentinfo" className="w-full bg-[#0b0b0c] text-slate-200 mt-12" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+      <FooterTopNav />
+
+      <div className="container mx-auto py-10 px-[5%]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <img src="/src/assets/sismedika-logo.png" alt="Sismedika" className="h-16 w-auto object-contain" />
+            <p className="text-sm text-slate-400 max-w-xs">Building secure, compliant healthcare platforms that scale with your organization.</p>
+            <FooterSocials />
           </div>
+
+          <FooterColumn title="Products" links={["Sismedika Platform","Clinical Apps","Analytics","Integrations"]} />
+          <FooterColumn title="Platform" links={["API & SDKs","Security","Compliance","Pricing"]} />
+          <FooterColumn title="Industries" links={["Healthcare","Pharma","Fintech","Education"]} />
+          <FooterColumn title="Resources" links={["Blog","Customer Stories","Webinars & events","Case studies"]} />
         </div>
 
-        <nav className="mt-4 md:mt-0">
-          <ul className="flex gap-6 text-sm">
-            <li><a href="#" className="hover:text-white">Home</a></li>
-            <li><a href="#" className="hover:text-white">Product</a></li>
-            <li><a href="#" className="hover:text-white">Pricing</a></li>
-            <li><a href="#" className="hover:text-white">Contact</a></li>
-          </ul>
-        </nav>
-
-  <div className="mt-4 md:mt-0 text-sm text-slate-400">© {new Date().getFullYear()} Sismedika. All rights reserved.</div>
+        <FooterBottomNav />
       </div>
     </footer>
   )

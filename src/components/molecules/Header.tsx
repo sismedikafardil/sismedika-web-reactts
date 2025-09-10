@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import HeaderBtm from './HeaderBtm'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -14,8 +15,9 @@ export default function Header() {
   const headerBg = scrolled ? 'bg-slate-900 text-white shadow-md' : 'bg-white text-slate-900 shadow-sm'
 
   return (
-    <header className={`${headerBg} sticky top-0 z-50 transition-colors duration-200`}>
-  <div className="px-[5%] py-4 flex items-center justify-between">
+    <>
+      <header className={`${headerBg} sticky top-0 z-50 transition-colors duration-200`}>
+        <div className="px-[5%] py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-3">
             <img src="/src/assets/sismedika-logo.png" alt="Sismedika" className="h-8" />
@@ -54,8 +56,10 @@ export default function Header() {
             </svg>
           </button>
         </div>
-      </div>
-    </header>
+        </div>
+      </header>
+      <HeaderBtm />
+    </>
   )
 }
 
