@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # sismedika-web-reactts
 
 Sismedika Marketing Website built with React, TypeScript, Vite and Tailwind CSS.
