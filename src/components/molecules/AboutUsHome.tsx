@@ -1,13 +1,45 @@
 export default function AboutUsHome({ className = '' }: { className?: string }) {
 	return (
 		<section className={"relative z-10 " + className} style={{ marginTop: '-5em' }}>
-			{/* full-bleed gradient background */}
+			{/* refined split background: white (left) / teal (right) with diagonal divider */}
 			<div
-				className="w-full bg-gradient-to-b from-white to-[#29AB9A] rounded-t-2xl shadow-md"
+				className="relative w-full rounded-t-2xl shadow-md overflow-hidden bg-white"
 				style={{ marginTop: '3em' }}
 			>
-				<div className="container mx-auto py-10 px-[5%]">
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start" style={{ marginTop: '4em' }}>
+				{/* right-side teal with diagonal cut */}
+				<div
+					className="absolute inset-y-0 right-0 w-full lg:w-[64%] bg-[#29AB9A]"
+					style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+					aria-hidden
+				/>
+				{/* soft shadow-ish divider between areas (vertical accent on large screens) */}
+				<div className="hidden lg:block absolute inset-y-8 left-1/2 w-px bg-gradient-to-b from-transparent via-black/10 to-transparent" aria-hidden />
+				{/* subtle geometric shapes on the right */}
+				<div className="pointer-events-none absolute inset-0" aria-hidden>
+					{/* circle outlines */}
+					<div className="absolute top-10 right-[22%] h-16 w-16 rounded-full border border-white/30 opacity-30" />
+					<div className="absolute bottom-16 right-[8%] h-24 w-24 rounded-full border border-white/20 opacity-20" />
+					{/* tiny plus signs using rotated elements */}
+					<div className="absolute top-24 right-[12%] opacity-30">
+						<div className="relative h-4 w-4 text-white/60">
+							<span className="absolute inset-0 h-[1px] w-full bg-white/60" />
+							<span className="absolute inset-0 w-[1px] h-full bg-white/60" />
+						</div>
+					</div>
+					<div className="absolute bottom-24 right-[28%] opacity-20">
+						<div className="relative h-5 w-5 text-white/60">
+							<span className="absolute inset-0 h-[1px] w-full bg-white/60" />
+							<span className="absolute inset-0 w-[1px] h-full bg-white/60" />
+						</div>
+					</div>
+					{/* gentle wave overlay near middle to suggest curvature */}
+					<svg className="hidden md:block absolute top-1/2 -translate-y-1/2 right-[38%] opacity-15" width="220" height="90" viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 45 C40 10, 80 80, 120 45 S 200 10, 220 45" stroke="white" strokeOpacity="0.35" strokeWidth="2" fill="none" />
+					</svg>
+				</div>
+				<div className="relative z-10">
+					<div className="container mx-auto py-12 px-[5%]">
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start" style={{ marginTop: '2.5em' }}>
 						{/* left: heading + paragraph + stats */}
 						<div className="space-y-8">
 							<div>
@@ -74,12 +106,8 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 						{/* right: image + overlays + accents */}
 						<div className="space-y-6">
 							<div className="relative">
-								{/* background accents */}
-								<div aria-hidden className="pointer-events-none absolute -top-6 -left-8 h-40 w-40 rounded-full bg-[radial-gradient(closest-side,_#29AB9A_30%,_transparent_60%)] opacity-30 blur-xl" />
-								<div aria-hidden className="pointer-events-none absolute -bottom-8 -right-10 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,_#f59e0b_25%,_transparent_60%)] opacity-30 blur-2xl" />
-
 								<div className="flex justify-center lg:justify-end">
-									<div className="group relative w-full max-w-md md:max-w-lg h-56 md:h-72 rounded-2xl overflow-hidden shadow-lg bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-black/5">
+									<div className="group relative w-full max-w-md md:max-w-lg h-56 md:h-72 rounded-2xl overflow-hidden shadow-xl bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-white/30">
 										<img
 											src="/src/assets/karyawan-sismed.png"
 											alt="Karyawan Sismedika"
@@ -104,6 +132,7 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
 			</div>
 		</section>
