@@ -112,7 +112,7 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 									<ImageView
 										src={new URL('../../assets/primaya-hospital.png', import.meta.url).href}
 										alt="Primaya Hospital"
-										heightClass="h-56 md:h-72"
+										ratio="3/4.5"
 										caption="Primaya Hospital — trusted partner in digital healthcare transformation"
 										hoverText="Delivering reliable, human-centered healthtech for hospitals across Indonesia."
 									/>

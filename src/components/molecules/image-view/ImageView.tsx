@@ -3,6 +3,7 @@ type ImageViewProps = {
   alt: string
   className?: string
   heightClass?: string
+  ratio?: string
   caption?: string
   hoverText?: string
 }
@@ -11,12 +12,16 @@ export default function ImageView({
   src,
   alt,
   className = '',
-  heightClass = 'h-56 md:h-72',
+  heightClass = '',
+  ratio = '2/3',
   caption = 'Meet the SisMedika team behind your hospital digitalization journey',
   hoverText = 'Our passionate team, dedicated to transforming healthcare with technology.',
 }: ImageViewProps) {
   return (
-    <div className={`group relative w-full max-w-md md:max-w-lg ${heightClass} rounded-2xl overflow-hidden shadow-xl bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-white/30 ${className}`}>
+    <div
+      className={`group relative w-full max-w-md md:max-w-lg ${heightClass} rounded-2xl overflow-hidden shadow-xl bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-white/30 ${className}`}
+      style={{ aspectRatio: ratio }}
+    >
       <img src={src} alt={alt} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
       {/* bottom gradient caption */}
       <div className="absolute inset-x-0 bottom-0">
