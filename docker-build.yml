@@ -1,0 +1,58 @@
+name: Build & Push Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 10 * * *" # jalan tiap hari jam 17:00 WIB (GitHub UTC -> 10:00)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/sismedikafardil/sismedika-web:latest
+name: Build & Push Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 10 * * *" # jalan tiap hari jam 17:00 WIB (GitHub UTC -> 10:00)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/sismedikafardil/sismedika-web:latest
