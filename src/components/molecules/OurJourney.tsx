@@ -6,6 +6,7 @@ const milestones = [
   { year: '2009', title: 'Founded', desc: 'Sismedika launched to modernize hospital operations.', icon: 'fa-solid fa-flag' },
   { year: '14+', title: 'Years', desc: 'Over a decade of continuous product and service improvements.', icon: 'fa-solid fa-calendar-days' },
   { year: '18+', title: 'Projects', desc: 'Delivered mission-critical systems across hospitals and clinics.', icon: 'fa-solid fa-diagram-project' },
+  { year: '100+', title: 'Products', desc: 'And projects already released with satisfaction!', icon: 'fa-solid fa-box' },
 ]
 
 export default function OurJourney({ className = '' }: { className?: string }) {
