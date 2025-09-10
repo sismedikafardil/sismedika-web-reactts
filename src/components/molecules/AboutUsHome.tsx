@@ -41,7 +41,7 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 				</div>
 				<div className="relative z-10">
 					<div className="container mx-auto py-12 px-[5%]">
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start" style={{ marginTop: '2.5em' }}>
+						<div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 items-start" style={{ marginTop: '2.5em' }}>
 						{/* left: heading + paragraph + stats */}
 						<div className="space-y-8">
 							<div>
@@ -106,16 +106,19 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 						{/* right: image + overlays + accents */}
 						<div className="space-y-6">
 							<div className="relative">
-								<div className="flex justify-center lg:justify-end">
-									{/* ImageView: primaya-hospital card */}
-									{/** Using Vite asset URL so bundling and cache-busting work */}
-									<ImageView
-										src={new URL('../../assets/primaya-hospital.png', import.meta.url).href}
-										alt="Primaya Hospital"
-										ratio="3/4.5"
-										caption="Primaya Hospital — trusted partner in digital healthcare transformation"
-										hoverText="Delivering reliable, human-centered healthtech for hospitals across Indonesia."
-									/>
+								<div className="flex justify-center lg:justify-end pr-0 lg:pr-[10px]">
+									{/* scaled container reduces image by ~10% and adds extra right padding on large screens */}
+									<div className="transform-gpu" style={{ transform: 'scale(0.9)' }}>
+										{/* ImageView: primaya-hospital card */}
+										{/** Using Vite asset URL so bundling and cache-busting work */}
+										<ImageView
+											src={new URL('../../assets/primaya-hospital.png', import.meta.url).href}
+											alt="Primaya Hospital"
+											ratio="3/3.5"
+											caption="Primaya Hospital — trusted partner in digital healthcare transformation"
+											hoverText="Delivering reliable, human-centered healthtech for hospitals across Indonesia."
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
