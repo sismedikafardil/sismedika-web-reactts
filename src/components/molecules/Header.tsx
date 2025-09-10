@@ -20,7 +20,7 @@ export default function Header() {
         <div className="px-[5%] py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/src/assets/sismedika-logo.png" alt="Sismedika" className="h-8" />
+            <img src="/assets/sismedika-logo.png" alt="Sismedika" className="h-8" />
           </Link>
         </div>
 

@@ -24,7 +24,7 @@ export default function BannerV1({
   paragraph = '',
   buttonLabel = 'Book a demo',
   onButtonClick,
-  imageSrc = '/src/assets/img-banner-01.png',
+  imageSrc = '/assets/img-banner-01.png',
   imageAlt = 'illustration',
   className = '',
 }: BannerV1Props) {

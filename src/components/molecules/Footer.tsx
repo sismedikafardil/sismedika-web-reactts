@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container mx-auto py-10 px-[5%]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-4">
-            <img src="/src/assets/sismedika-logo.png" alt="Sismedika" className="h-16 w-auto object-contain" />
+            <img src="/assets/sismedika-logo.png" alt="Sismedika" className="h-16 w-auto object-contain" />
             <p className="text-sm text-slate-400 max-w-xs">Building secure, compliant healthcare platforms that scale with your organization.</p>
             <FooterSocials />
           </div>

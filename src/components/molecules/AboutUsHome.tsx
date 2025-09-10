@@ -43,6 +43,7 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 						<div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 items-start" style={{ marginTop: '2.5em' }}>
 							<div className="space-y-8">
 								<div>
+									<div className="text-sm font-semibold text-[#29AB9A] uppercase tracking-wide mb-8">MEET SISMEDIKA</div>
 									<h2 className="text-3xl font-extrabold text-slate-900">Transforming healthcare through smarter digital solutions</h2>
 									<p className="mt-4 text-slate-600 max-w-2xl">
 										Hospitals and clinics across Indonesia trust SISMEDIKA to simplify complex workflows, from admissions to EMR. By streamlining operations and enabling seamless collaboration, our healthtech solutions empower medical teams to focus on what matters most—better patient care.
@@ -104,7 +105,7 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 								<div className="relative">
 									<div className="flex justify-center lg:justify-end pr-0 lg:pr-[10px]">
 										<MDiv ref={imageReveal.ref} variants={imageReveal.variants.item} initial="hidden" animate={imageReveal.inView ? 'show' : 'hidden'} className="transform-gpu will-change-transform">
-											<ImageViewPlain src={new URL('../../assets/primaya-hospital.png', import.meta.url).href} alt="Primaya Hospital" ratio="3/3.5" />
+											<ImageViewPlain src={'/assets/primaya-hospital.png'} alt="Primaya Hospital" ratio="3/3.5" />
 										</MDiv>
 									</div>
 								</div>

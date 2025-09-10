@@ -1,6 +1,7 @@
 import BannerV1 from '../components/molecules/BannerV1'
 import AboutUsHome from '../components/molecules/AboutUsHome'
 import OurClients from '../components/molecules/OurClients'
+import OurJourney from '../components/molecules/OurJourney'
 
 export default function Home() {
   return (
@@ -14,8 +15,9 @@ export default function Home() {
             onButtonClick={() => console.log('Book a meeting clicked')}
           />
         </div>
-        <OurClients />
-        <AboutUsHome />
+  <OurClients />
+  <AboutUsHome />
+  <OurJourney />
       </main>
     </>
   )
