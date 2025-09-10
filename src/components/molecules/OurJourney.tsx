@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import useReveal from '../../hooks/useReveal'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
+import MapIndonesia from './maps/MapIndonesia'
 
 const milestones = [
   { year: '2009', title: 'Founded', desc: 'Sismedika launched to modernize hospital operations.', icon: 'fa-solid fa-flag' },
@@ -12,10 +13,7 @@ const milestones = [
 export default function OurJourney({ className = '' }: { className?: string }) {
   const reveal = useReveal({ offset: 72, stiffness: 90, damping: 20, stagger: 0.12 })
   const M = motion.div as unknown as (props: ComponentPropsWithoutRef<'div'> & Record<string, unknown>) => JSX.Element
-  // resolve public asset path reliably across dev/prod
-  const _base = (import.meta.env && (import.meta.env.BASE_URL as string)) || '/'
-  const base = _base.endsWith('/') ? _base : `${_base}/`
-  const mapSrc = `${base}assets/indonesia-map.png`
+  // MapIndonesia component handles public asset resolution
 
   return (
     <section className={`w-full py-12 ${className}`}>
@@ -55,12 +53,25 @@ export default function OurJourney({ className = '' }: { className?: string }) {
           {/* standalone map section (not part of reveal) */}
           <div className="w-full flex flex-col items-center mt-[7em]">
             <div className="text-center mb-6">
-              <div className="text-lg font-extrabold">Nationwide impact</div>
-              <div className="text-sm text-slate-600">Sismedika systems run across hospitals nationwide.</div>
+              <h3 className="text-2xl md:text-3xl font-extrabold">Nationwide impact</h3>
+            <div className="text-sm text-slate-600 mt-[2em]">
+                Sismedika solutions run across hospitals nationwide, providing integrated hospital information systems that streamline clinical workflows, improve patient care, enable real-time analytics, ensure data security and compliance, and support staff training and operational efficiency across both urban and rural facilities.
+            </div>
             </div>
             <div className="flex items-center justify-center">
-              {/* scale map to approximately 4x the original h-24 (24rem = h-96) */}
-              <img src={mapSrc} alt="Indonesia map" className="h-96 w-auto opacity-90 rounded-lg origin-center" />
+              {/* reusable map component with default Jakarta spot (percent coords) */}
+              <MapIndonesia
+                height="h-96"
+                spots={[
+                  {
+                    id: 'jakarta',
+                    x: 52,
+                    y: 60,
+                    title: 'Greater Jakarta',
+                    items: ['RSUP Persahabatan', 'RSUP Cipto Mangunkusumo', 'RS Fatmawati'],
+                  },
+                ]}
+              />
             </div>
           </div>
           </div>

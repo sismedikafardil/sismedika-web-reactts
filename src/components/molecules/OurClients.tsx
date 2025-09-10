@@ -27,7 +27,7 @@ export default function OurClients({ className = '' }: { className?: string }) {
         </h3>
       </div>
 
-      <div className="bg-slate-900 text-white rounded-t-xl h-[7em] flex items-center">
+      <div className="bg-slate-800 text-white rounded-t-xl h-[7em] flex items-center">
   {/* Added padding left & right = 10% */}
   {/* moved up by 1em */}
   <div className="w-[90%] mx-auto -mt-4">

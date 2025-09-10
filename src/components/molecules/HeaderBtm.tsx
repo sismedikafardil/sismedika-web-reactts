@@ -1,33 +1,23 @@
 import { useEffect, useState } from 'react'
 
 export default function HeaderBtm({ className = '' }: { className?: string }) {
-  const [topOffset, setTopOffset] = useState(0)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    function updateOffset() {
-      const hdr = document.querySelector('header') as HTMLElement | null
-      const h = hdr ? Math.round(hdr.getBoundingClientRect().height) : 0
-      setTopOffset(h)
-    }
-
     function onScroll() {
       setScrolled(window.scrollY > 20)
     }
 
-    updateOffset()
-    window.addEventListener('resize', updateOffset)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('resize', updateOffset)
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const baseBg = scrolled ? 'bg-slate-900' : 'bg-[#241043]'
 
   return (
-    <div className={`${baseBg} text-white sticky z-40 ${className}`} style={{ top: `${topOffset}px` }}>
+  // not sticky: allow this strip to scroll away with the page
+  <div className={`${baseBg} text-white z-[999] ${className}`}>
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-15 py-1 px-3 text-sm">
           <div className="flex items-center gap-2">
