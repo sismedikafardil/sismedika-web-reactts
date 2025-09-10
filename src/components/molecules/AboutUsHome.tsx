@@ -1,3 +1,5 @@
+import { ImageView } from './image-view'
+
 export default function AboutUsHome({ className = '' }: { className?: string }) {
 	return (
 		<section className={"relative z-10 " + className} style={{ marginTop: '-5em' }}>
@@ -105,27 +107,15 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 						<div className="space-y-6">
 							<div className="relative">
 								<div className="flex justify-center lg:justify-end">
-									<div className="group relative w-full max-w-md md:max-w-lg h-56 md:h-72 rounded-2xl overflow-hidden shadow-xl bg-white/60 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-white/30">
-										<img
-											src="/src/assets/karyawan-sismed.png"
-											alt="Karyawan Sismedika"
-											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-										/>
-										{/* bottom gradient caption */}
-										<div className="absolute inset-x-0 bottom-0">
-											<div className="bg-gradient-to-t from-black/70 via-black/40 to-transparent px-3 py-2">
-												<p className="text-[11px] md:text-xs text-white/90">Meet the SisMedika team behind your hospital digitalization journey</p>
-											</div>
-										</div>
-										{/* hover overlay text */}
-										<div className="absolute inset-0 flex items-center justify-center text-center px-6">
-											<div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-												<div className="rounded-lg bg-black/55 text-white p-3 shadow-sm">
-													<p className="text-xs md:text-sm">Our passionate team, dedicated to transforming healthcare with technology.</p>
-												</div>
-											</div>
-										</div>
-									</div>
+									{/* ImageView: primaya-hospital card */}
+									{/** Using Vite asset URL so bundling and cache-busting work */}
+									<ImageView
+										src={new URL('../../assets/primaya-hospital.png', import.meta.url).href}
+										alt="Primaya Hospital"
+										heightClass="h-56 md:h-72"
+										caption="Primaya Hospital — trusted partner in digital healthcare transformation"
+										hoverText="Delivering reliable, human-centered healthtech for hospitals across Indonesia."
+									/>
 								</div>
 							</div>
 						</div>
