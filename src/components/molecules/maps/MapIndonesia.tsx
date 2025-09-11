@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { FC } from 'react'
-import MapSpot, { type Spot } from './MapSpot'
+import MapSpot, { type Spot } from './MapSpot.tsx'
 
 type Cluster = {
   key: string
