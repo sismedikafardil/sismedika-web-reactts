@@ -33,7 +33,7 @@ export default function BannerV1({
 
   return (
   <section className={"w-full bg-gradient-to-r from-slate-50 to-sky-50 py-8 " + className}>
-  <div className="mx-auto w-full md:px-[5%] grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+  <div className="mx-auto w-full px-[2.5em] md:px-[5%] grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="max-w-xl">
           <Typography.H1 weight="extrabold" className="text-slate-900">
             {safeHeading}
