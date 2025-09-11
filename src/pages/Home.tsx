@@ -2,11 +2,11 @@ import BannerV1 from '../components/molecules/BannerV1'
 import AboutUsHome from '../components/molecules/AboutUsHome'
 import OurClients from '../components/molecules/OurClients'
 import OurJourney from '../components/molecules/OurJourney'
+import OurPlatforms from '../components/molecules/OurPlatforms'
 
 export default function Home() {
   return (
     <>
-      <main className="container mx-auto flex-1 space-y-12">
         <div className="-mt-8">
           <BannerV1
             heading={`The trusted path to hospital digitalization.`}
@@ -15,10 +15,10 @@ export default function Home() {
             onButtonClick={() => console.log('Book a meeting clicked')}
           />
         </div>
-  <OurClients />
-  <AboutUsHome />
+        <OurClients />
+        <AboutUsHome />
   <OurJourney />
-      </main>
+        <OurPlatforms />
     </>
   )
 }

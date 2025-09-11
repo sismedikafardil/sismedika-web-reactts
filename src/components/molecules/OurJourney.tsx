@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import useReveal from '../../hooks/useReveal'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
 import MapIndonesia from './maps/MapIndonesia'
@@ -15,12 +16,60 @@ export default function OurJourney({ className = '' }: { className?: string }) {
   const reveal = useReveal({ offset: 72, stiffness: 90, damping: 20, stagger: 0.12 })
   const M = motion.div as unknown as (props: ComponentPropsWithoutRef<'div'> & Record<string, unknown>) => JSX.Element
   // MapIndonesia component handles public asset resolution
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const [parallaxY, setParallaxY] = useState(0)
+
+  useEffect(() => {
+    // rAF-throttled scroll handler for smooth, performant parallax
+    let ticking = false
+    const onScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+  // compute a stronger parallax offset based on section position
+  const intensity = 0.28 // between 0.25–0.3 for a sturdy feel
+  const raw = -rect.top * intensity
+  const offset = Math.max(-120, Math.min(120, raw)) // widened clamp to ±120px
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setParallaxY(offset)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  const _base = (import.meta.env && (import.meta.env.BASE_URL as string)) || '/'
+  const base = _base.endsWith('/') ? _base : `${_base}/`
+  const decoSrc = `${base}assets/karyawan-sismed.png`
 
   return (
-    <section className={`w-full py-12 ${className}`}>
-      <div className="container mx-auto px-[5%]">
+  <section ref={sectionRef} className={`w-full pt-0 pb-0 mb-0 relative overflow-hidden ${className}`}>
+      {/* decorative parallax background image (fills section, low opacity) */}
+      <img
+        src={decoSrc}
+        alt="decorative staff"
+        aria-hidden
+        // pointer-events-none + absolute full-cover; we use translate3d for GPU accel
+        className="pointer-events-none absolute inset-0 w-full h-full object-cover z-0"
+  style={{ transform: `translate3d(0, ${parallaxY}px, 0) scale(1.08)`, transformOrigin: 'center', opacity: 0.2, willChange: 'transform' }}
+        onError={(e) => {
+          const img = e.currentTarget as HTMLImageElement
+          if (img.src.endsWith('/assets/karyawan-sismed.png')) return
+          img.src = '/assets/karyawan-sismed.png'
+        }}
+      />
+  <div className="container mx-auto px-[5%] relative z-10 mt-[6em]">
         <div className="text-center mb-8">
-          <div className="text-sm font-semibold text-[#29AB9A] uppercase tracking-wide">Our Story</div>
+          <div className="text-sm font-semibold text-[#29AB9A] uppercase tracking-wide" style={{ marginBottom: '1em' }}>Our Story</div>
           <h3 className="text-2xl md:text-3xl font-extrabold">Over 14 years of innovation in hospital information systems.</h3>
         </div>
 
@@ -52,7 +101,7 @@ export default function OurJourney({ className = '' }: { className?: string }) {
           </div>
 
           {/* standalone map section (not part of reveal) */}
-          <div className="w-full flex flex-col items-center mt-[7em]">
+          <div className="w-full flex flex-col items-center mt-12 md:mt-16">
             <div className="text-center mb-6">
               <h3 className="text-2xl md:text-3xl font-extrabold">Nationwide impact</h3>
             <div className="text-sm text-slate-600 mt-[2em]">
