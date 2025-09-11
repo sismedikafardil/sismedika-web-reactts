@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import useReveal from '../../hooks/useReveal'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
 import MapIndonesia from './maps/MapIndonesia'
+import { getSpotsForMap } from './maps/MapSpot'
 
 const milestones = [
   { year: '2009', title: 'Founded', desc: 'Sismedika launched to modernize hospital operations.', icon: 'fa-solid fa-flag' },
@@ -55,22 +56,14 @@ export default function OurJourney({ className = '' }: { className?: string }) {
             <div className="text-center mb-6">
               <h3 className="text-2xl md:text-3xl font-extrabold">Nationwide impact</h3>
             <div className="text-sm text-slate-600 mt-[2em]">
-                Sismedika solutions run across hospitals nationwide, providing integrated hospital information systems that streamline clinical workflows, improve patient care, enable real-time analytics, ensure data security and compliance, and support staff training and operational efficiency across both urban and rural facilities.
+              Sismedika solutions run across hospitals nationwide, providing integrated hospital information systems that streamline clinical workflows, enable real-time analytics, ensure data security and compliance, and support staff training and operational efficiency. We are proud to be present in more than <strong>30 major cities</strong> across Indonesia.
             </div>
             </div>
             <div className="flex items-center justify-center">
               {/* reusable map component with default Jakarta spot (percent coords) */}
               <MapIndonesia
                 height="h-96"
-                spots={[
-                  {
-                    id: 'jakarta',
-                    x: 52,
-                    y: 60,
-                    title: 'Greater Jakarta',
-                    items: ['RSUP Persahabatan', 'RSUP Cipto Mangunkusumo', 'RS Fatmawati'],
-                  },
-                ]}
+                spots={getSpotsForMap('indonesia').map((s) => ({ id: s.id, x: s.x, y: s.y, title: s.name, items: s.items, total: s.total }))}
               />
             </div>
           </div>

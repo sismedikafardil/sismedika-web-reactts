@@ -17,7 +17,8 @@ export default function HeaderBtm({ className = '' }: { className?: string }) {
 
   return (
   // not sticky: allow this strip to scroll away with the page
-  <div className={`${baseBg} text-white z-[999] ${className}`}>
+  // hide on mobile/tablet, show on large screens and up
+  <div className={`hidden lg:block ${baseBg} text-white z-[999] ${className}`}>
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-15 py-1 px-3 text-sm">
           <div className="flex items-center gap-2">
