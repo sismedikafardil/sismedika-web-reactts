@@ -22,9 +22,6 @@ export default function His(): JSX.Element {
 						<div>
 							<h4 className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Patient Transaction Management</h4>
 							<p className="mt-2 text-slate-700">A Hospital Information System that streamlines end-to-end operations: admission, billing, discharge, and insurance workflows integrated in one seamless flow, ensuring efficiency, accuracy, and better patient experience across the entire hospital journey.</p>
-							<button type="button" className="mt-4 inline-flex items-center rounded-md bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800">
-								Learn more
-							</button>
 							<img
 								src={`${import.meta.env.BASE_URL}assets/his-image-1.png`}
 								onError={(e) => {
@@ -32,8 +29,11 @@ export default function His(): JSX.Element {
 								}}
 								alt="HIS illustration"
 								loading="lazy"
-								className="w-[80%] h-auto object-contain max-h-64 md:max-h-80 mt-[2em]"
+								className="w-[80%] h-auto object-contain max-h-64 md:max-h-80 mx-auto block mt-4 mb-4"
 							/>
+							<button type="button" className="mt-2 inline-flex items-center rounded-md bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800">
+								Learn more
+							</button>
 						</div>
 						<div />
 					</div>
@@ -42,20 +42,20 @@ export default function His(): JSX.Element {
 					<div className="grid gap-6">
 						{/* Row 1: Left 60% text, Right 40% intentionally empty to preserve proportion */}
 						<div>
-								<h4 className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Smart Laboratorium</h4>
-								<p className="mt-2 text-slate-700">Smart Laboratorium streamlines order entry, sample tracking, analyzer integration, QC, and result reporting. Connected to EMR and billing, it reduces errors and turnaround time for faster, reliable diagnostics across the hospital.</p>
+							<img
+								src={`${import.meta.env.BASE_URL}assets/lab.png`}
+								onError={(e) => {
+									(e.currentTarget as HTMLImageElement).src = '/assets/lab.png'
+								}}
+								alt="Laboratorium illustration"
+								loading="lazy"
+								className="w-[80%] h-auto object-contain max-h-64 md:max-h-80 mx-auto block mb-4"
+							/>
+							<h4 className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Smart Laboratorium</h4>
+							<p className="mt-2 text-slate-700">Smart Laboratorium streamlines order entry, sample tracking, analyzer integration, QC, and result reporting. Connected to EMR and billing, it reduces errors and turnaround time for faster, reliable diagnostics across the hospital.</p>
 							<button type="button" className="mt-4 inline-flex items-center rounded-md bg-slate-900 text-white px-4 py-2 text-sm hover:bg-slate-800">
 								Learn more
 							</button>
-								<img
-									src={`${import.meta.env.BASE_URL}assets/lab.png`}
-									onError={(e) => {
-										(e.currentTarget as HTMLImageElement).src = '/assets/lab.png'
-									}}
-									alt="Laboratorium illustration"
-									loading="lazy"
-									className="w-[80%] h-auto object-contain max-h-64 md:max-h-80"
-								/>
 						</div>
 						<div />
 					</div>

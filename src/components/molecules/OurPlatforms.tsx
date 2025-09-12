@@ -48,9 +48,11 @@ export default function OurPlatforms({ className = '' }: { className?: string })
   const MDiv = motion.div as unknown as (props: ComponentPropsWithoutRef<'div'> & Record<string, unknown>) => JSX.Element
 
   return (
-    <section className={` w-full bg-gradient-to-r from-slate-50 to-sky-50 pt-0 pb-0 ${className}`}>
-      <div className="mx-auto w-full px-[5%] pt-0">
-      <div className="text-[#29AB9A] text-sm text-center font-semibold uppercase tracking-wide mb-6">OUR SOLUTION</div>
+   <section className={` w-full bg-gradient-to-r from-slate-50 to-sky-50 pt-[3em] pb-0 ${className}`}>
+    <div className="mx-auto w-full px-[5%] pt-0">
+    <div className="text-[#29AB9A] text-sm text-center font-semibold uppercase tracking-wide mb-6">
+      <div className='pt-4'>OUR SOLUTION</div>
+    </div>
         <div className="text-center mb-6">
           <h3 className="text-2xl md:text-3xl font-extrabold">SISMEDIKA platforms for your end-to-end healthcare solution</h3>
         </div>
