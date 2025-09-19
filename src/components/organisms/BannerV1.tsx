@@ -1,7 +1,7 @@
 import Typography from '../atoms/typography/Typography'
 
 type BannerV1Props = {
-  heading: string
+  heading?: string
   paragraph?: string
   buttonLabel?: string
   onButtonClick?: () => void
@@ -20,13 +20,13 @@ function truncate(text: string, max: number) {
 }
 
 export default function BannerV1({
-  heading,
-  paragraph = '',
-  buttonLabel = 'Book a demo',
+  heading = `The trusted path to hospital digitalization.`,
+  paragraph = `We are your trusted partner for hospitals across Indonesia, delivering seamless digital transformation for better care.`,
+  buttonLabel = 'Book a meeting',
   onButtonClick,
   imageSrc = '/assets/img-banner-01.png',
   imageAlt = 'illustration',
-  className = '',
+  className = '-mt-8',
 }: BannerV1Props) {
   const safeHeading = truncate(heading, MAX_HEADING)
   const safeParagraph = truncate(paragraph, MAX_PARAGRAPH)

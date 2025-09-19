@@ -12,8 +12,8 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 
 	const MDiv = motion.div as unknown as (props: ComponentPropsWithoutRef<'div'> & Record<string, unknown>) => JSX.Element
 
-	return (
-		<section className={'relative z-10 ' + className} style={{ marginTop: '-5em', marginBottom: '-0.75rem' }}>
+		return (
+			<section className={'relative z-10 ' + className} style={{ marginTop: '-4.5em' }}>
 			<div className="relative w-full rounded-t-2xl shadow-md overflow-hidden bg-white" style={{ marginTop: '3em' }}>
 				<div className="absolute inset-y-0 right-0 w-full lg:w-[64%] bg-[#29AB9A]" style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }} aria-hidden />
 
@@ -40,8 +40,8 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 				</div>
 
 				<div className="relative z-10">
-					<div className="container mx-auto pt-12 pb-2 md:pb-4 px-[5%]">
-						<div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 items-start" style={{ marginTop: '2.5em' }}>
+					<div className="container mx-auto py-6 md:py-8 px-4">
+						<div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 items-start" style={{ marginTop: '2.5em', marginBottom: '4em' }}>
 							<div className="space-y-8">
 								<div>
 									<div className="text-sm font-semibold text-[#29AB9A] uppercase tracking-wide mb-8">MEET SISMEDIKA</div>

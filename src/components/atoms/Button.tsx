@@ -1,5 +1,6 @@
-export default function Button({ children }: { children: React.ReactNode }) {
+export default function Button({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const base = 'px-4 py-2 bg-[#29AB9A] hover:bg-[#238d85] text-white rounded cursor-pointer'
   return (
-    <button className="px-4 py-2 bg-[#29AB9A] hover:bg-[#238d85] text-white rounded">{children}</button>
+    <button className={`${base} ${className}`.trim()}>{children}</button>
   )
 }

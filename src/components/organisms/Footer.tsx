@@ -6,10 +6,10 @@ import Paragraph from '../atoms/Paragraph'
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="w-full bg-[#0b0b0c] text-slate-200 mt-12" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+    <footer role="contentinfo" className="w-full bg-[#0b0b0c] text-slate-200" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       <FooterTopNav />
 
-      <div className="container mx-auto py-10 px-[5%]">
+      <div className="container mx-auto py-8 px-[5%]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-4">
             <img src="/assets/sismedika-logo.png" alt="Sismedika" className="h-16 w-auto object-contain" />

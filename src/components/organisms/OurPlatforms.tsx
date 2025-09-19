@@ -102,6 +102,8 @@ export default function OurPlatforms({ className = '' }: { className?: string })
             </MDiv>
           )}
         </div>
+        {/* spacer to add breathing room below the active content */}
+        <div className="h-12 md:h-20" />
       </div>
     </section>
   )

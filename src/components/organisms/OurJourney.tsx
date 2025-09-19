@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import useReveal from '../../hooks/useReveal'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
 import Paragraph from '../atoms/Paragraph'
+import Boxes from '../atoms/Boxes'
 import MapIndonesia from '../molecules/maps/MapIndonesia'
 import { getSpotsForMap } from '../molecules/maps/MapSpot'
 
@@ -90,10 +91,10 @@ export default function OurJourney({ className = '' }: { className?: string }) {
                           <i className={`${m.icon} text-lg`} aria-hidden />
                         </div>
                       </div>
-                      <div className="bg-white rounded-xl p-4 shadow-sm">
+                      <Boxes variant="elevated" className="p-4 rounded-xl">
                         <div className="text-xl font-extrabold text-slate-900"><span className="text-[#29AB9A] mr-2">{m.year}</span>{m.title}</div>
                         <div className="text-sm text-slate-600 mt-1">{m.desc}</div>
-                      </div>
+                      </Boxes>
                     </div>
                   </div>
                 </M>
