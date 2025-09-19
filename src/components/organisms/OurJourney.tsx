@@ -2,8 +2,9 @@ import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import useReveal from '../../hooks/useReveal'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
-import MapIndonesia from './maps/MapIndonesia'
-import { getSpotsForMap } from './maps/MapSpot'
+import Paragraph from '../atoms/Paragraph'
+import MapIndonesia from '../molecules/maps/MapIndonesia'
+import { getSpotsForMap } from '../molecules/maps/MapSpot'
 
 const milestones = [
   { year: '2009', title: 'Founded', desc: 'Sismedika launched to modernize hospital operations.', icon: 'fa-solid fa-flag' },
@@ -104,9 +105,9 @@ export default function OurJourney({ className = '' }: { className?: string }) {
           <div className="w-full flex flex-col items-center mt-12 md:mt-16">
             <div className="text-center mb-6">
               <h3 className="text-2xl md:text-3xl font-extrabold">Nationwide impact</h3>
-            <div className="text-sm text-slate-600 mt-[2em]">
+            <Paragraph variant="normal" className="text-sm text-slate-600 mt-[2em] px-[2em] max-w-4xl mx-auto">
               Sismedika solutions run across hospitals nationwide, providing integrated hospital information systems that streamline clinical workflows, enable real-time analytics, ensure data security and compliance, and support staff training and operational efficiency. We are proud to be present in more than <strong>30 major cities</strong> across Indonesia.
-            </div>
+            </Paragraph>
             </div>
             <div className="flex items-center justify-center">
               {/* reusable map component with default Jakarta spot (percent coords) */}

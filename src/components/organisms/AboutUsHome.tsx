@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
-import { ImageViewPlain } from './image-view'
+import { ImageViewPlain } from '../molecules/image-view'
 import useReveal from '../../hooks/useReveal'
+import Paragraph from '../atoms/Paragraph'
 
 export default function AboutUsHome({ className = '' }: { className?: string }) {
 
@@ -45,9 +46,9 @@ export default function AboutUsHome({ className = '' }: { className?: string }) 
 								<div>
 									<div className="text-sm font-semibold text-[#29AB9A] uppercase tracking-wide mb-8">MEET SISMEDIKA</div>
 									<h2 className="text-3xl font-extrabold text-slate-900">Transforming healthcare through smarter digital solutions</h2>
-									<p className="mt-4 text-slate-600 max-w-2xl">
+									<Paragraph variant="normal">
 										Hospitals and clinics across Indonesia trust SISMEDIKA to simplify complex workflows, from admissions to EMR. By streamlining operations and enabling seamless collaboration, our healthtech solutions empower medical teams to focus on what matters most—better patient care.
-									</p>
+									</Paragraph>
 								</div>
 
 												<MDiv ref={statsReveal.ref} variants={statsReveal.variants.container} initial="hidden" animate={statsReveal.inView ? 'show' : 'hidden'} className="grid grid-cols-1 sm:grid-cols-2 gap-6">

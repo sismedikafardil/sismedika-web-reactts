@@ -1,4 +1,5 @@
 import type { JSX } from 'react'
+import Paragraph from '../../atoms/Paragraph'
 
 export default function Accounting(): JSX.Element {
 	return (
@@ -14,7 +15,7 @@ export default function Accounting(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Hospital Information Integration</div>
-								<p className="text-slate-600 mt-1">Two-way sync with HIS modules for billing, pharmacy, lab, and EMR.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Two-way sync with HIS modules for billing, pharmacy, lab, and EMR.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -25,7 +26,7 @@ export default function Accounting(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Manage your Profit and Loss</div>
-								<p className="text-slate-600 mt-1">Real-time P&amp;L, drill-down reports, and cost center tracking.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Real-time P&amp;L, drill-down reports, and cost center tracking.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -40,7 +41,7 @@ export default function Accounting(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Invoice &amp; Claim Support</div>
-								<p className="text-slate-600 mt-1">Automate invoicing and BPJS claim reconciliation with audit logs.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Automate invoicing and BPJS claim reconciliation with audit logs.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -51,7 +52,7 @@ export default function Accounting(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">and many more</div>
-								<p className="text-slate-600 mt-1">Fixed assets, AR/AP, cash management, and consolidated reporting.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Fixed assets, AR/AP, cash management, and consolidated reporting.</Paragraph>
 							</div>
 						</div>
 					</div>

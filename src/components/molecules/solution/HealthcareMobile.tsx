@@ -1,4 +1,5 @@
 import type { JSX } from 'react'
+import Paragraph from '../../atoms/Paragraph'
 
 export default function HealthcareMobile(): JSX.Element {
 	return (
@@ -13,7 +14,7 @@ export default function HealthcareMobile(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Clinician Apps</div>
-								<p className="text-slate-600 mt-1">Rounds, orders, e-prescription, and approvals on-the-go.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Rounds, orders, e-prescription, and approvals on-the-go.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -24,7 +25,7 @@ export default function HealthcareMobile(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Tasks & Notifications</div>
-								<p className="text-slate-600 mt-1">Real-time tasking with alerts and escalation rules.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Real-time tasking with alerts and escalation rules.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -39,7 +40,7 @@ export default function HealthcareMobile(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Dashboards</div>
-								<p className="text-slate-600 mt-1">KPIs and analytics available from anywhere securely.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">KPIs and analytics available from anywhere securely.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -50,7 +51,7 @@ export default function HealthcareMobile(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">And many more</div>
-								<p className="text-slate-600 mt-1">Telemedicine, patient apps, queueing, and more.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Telemedicine, patient apps, queueing, and more.</Paragraph>
 							</div>
 						</div>
 					</div>

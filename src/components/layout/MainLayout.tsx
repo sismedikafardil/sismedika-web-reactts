@@ -1,5 +1,5 @@
-import Header from '../molecules/Header'
-import Footer from '../molecules/Footer'
+import Header from '../organisms/Header'
+import Footer from '../organisms/Footer'
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (

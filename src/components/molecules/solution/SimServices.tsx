@@ -1,6 +1,7 @@
 
 
 import type { JSX } from 'react'
+import Paragraph from '../../atoms/Paragraph'
 
 export default function SimServices(): JSX.Element {
 	return (
@@ -15,7 +16,7 @@ export default function SimServices(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Robust Performance</div>
-								<p className="text-slate-600 mt-1">High availability, scalability, and secure data handling.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">High availability, scalability, and secure data handling.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -26,7 +27,7 @@ export default function SimServices(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">24/7 Support</div>
-								<p className="text-slate-600 mt-1">Always-on support and proactive monitoring.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Always-on support and proactive monitoring.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -41,7 +42,7 @@ export default function SimServices(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">80%+ BPJS Success Claim</div>
-								<p className="text-slate-600 mt-1">Optimized workflows to drive successful claims.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Optimized workflows to drive successful claims.</Paragraph>
 							</div>
 						</div>
 					</div>
@@ -52,7 +53,7 @@ export default function SimServices(): JSX.Element {
 							</div>
 							<div>
 								<div className="text-lg font-bold text-slate-900">Installation & Troubleshoot</div>
-								<p className="text-slate-600 mt-1">Deployment, training, and ongoing maintenance.</p>
+								<Paragraph variant="normal" className="text-slate-600 mt-1 max-w-none">Deployment, training, and ongoing maintenance.</Paragraph>
 							</div>
 						</div>
 					</div>

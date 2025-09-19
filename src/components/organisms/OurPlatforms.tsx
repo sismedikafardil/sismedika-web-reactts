@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import type { ComponentPropsWithoutRef, JSX } from 'react'
 import useReveal from '../../hooks/useReveal'
-import Accounting from './solution/Accounting'
-import His from './solution/His'
-import HealthcareMobile from './solution/HealthcareMobile'
-import SimServices from './solution/SimServices'
+import Accounting from '../molecules/solution/Accounting'
+import His from '../molecules/solution/His'
+import HealthcareMobile from '../molecules/solution/HealthcareMobile'
+import SimServices from '../molecules/solution/SimServices'
 
 type Platform = {
   id: string

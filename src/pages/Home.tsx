@@ -1,8 +1,9 @@
-import BannerV1 from '../components/molecules/BannerV1'
-import AboutUsHome from '../components/molecules/AboutUsHome'
-import OurClients from '../components/molecules/OurClients'
-import OurJourney from '../components/molecules/OurJourney'
-import OurPlatforms from '../components/molecules/OurPlatforms'
+import BannerV1 from '../components/organisms/BannerV1'
+import AboutUsHome from '../components/organisms/AboutUsHome'
+import OurClients from '../components/organisms/OurClients'
+import OurJourney from '../components/organisms/OurJourney'
+import OurPlatforms from '../components/organisms/OurPlatforms'
+import ContactUs from '../components/organisms/ContactUs'
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
         <OurClients />
         <AboutUsHome />
   <OurJourney />
-        <OurPlatforms />
+  <OurPlatforms />
+  <ContactUs />
     </>
   )
 }

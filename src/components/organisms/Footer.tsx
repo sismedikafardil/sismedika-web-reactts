@@ -1,7 +1,8 @@
-import FooterTopNav from './footer/FooterTopNav'
-import FooterColumn from './footer/FooterColumn'
-import FooterSocials from './footer/FooterSocials'
-import FooterBottomNav from './footer/FooterBottomNav'
+import FooterTopNav from '../molecules/footer/FooterTopNav'
+import FooterColumn from '../molecules/footer/FooterColumn'
+import FooterSocials from '../molecules/footer/FooterSocials'
+import FooterBottomNav from '../molecules/footer/FooterBottomNav'
+import Paragraph from '../atoms/Paragraph'
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           <div className="flex flex-col items-start gap-4">
             <img src="/assets/sismedika-logo.png" alt="Sismedika" className="h-16 w-auto object-contain" />
-            <p className="text-sm text-slate-400 max-w-xs">Building secure, compliant healthcare platforms that scale with your organization.</p>
+            <Paragraph variant="normal" className="text-sm text-slate-400 max-w-xs">Building secure, compliant healthcare platforms that scale with your organization.</Paragraph>
             <FooterSocials />
           </div>
 

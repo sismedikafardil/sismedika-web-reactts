@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import HeaderBtm from './HeaderBtm'
+import HeaderBtm from '../molecules/HeaderBtm'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
