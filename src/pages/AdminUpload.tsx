@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
-import axios from 'axios'
+import { uploadFile } from '../lib/axios'
 import Button from '../components/atoms/Button'
 
 const STORAGE_KEY = 'adminUploadAuth'
 const USERNAME = 'admin'
 const PASSWORD = 'adminsim12'
-const API_BASE: string = 'http://127.0.0.1:8000'
 
 export default function AdminUpload() {
   const [authed, setAuthed] = useState(false)
@@ -87,20 +86,16 @@ export default function AdminUpload() {
     for (let i = 0; i < next.length; i++) {
       const it = next[i]
         try {
-        // Upload directly to backend using multipart/form-data
-        const formData = new FormData()
-        formData.append('file', it.file)
-
-        const resp = await axios.post(`${API_BASE}/upload`, formData, {
-          headers: { 'Content-Type': 'multipart/form-data' },
-          onUploadProgress: (evt) => {
-            if (!evt.total) return
-            const pct = Math.round((evt.loaded * 100) / evt.total)
-            setItems((curr) => curr.map((c) => (c.id === it.id ? { ...c, progress: pct } : c)))
-          },
+        // Upload via centralized helper
+        const data = await uploadFile(it.file, (evt) => {
+          const loaded = (evt?.loaded ?? 0) as number
+          const total = (evt?.total ?? 0) as number
+          if (!total) return
+          const pct = Math.round((loaded * 100) / total)
+          setItems((curr) => curr.map((c) => (c.id === it.id ? { ...c, progress: pct } : c)))
         })
 
-        const { public_url } = (resp.data || {}) as { public_url?: string }
+        const { public_url } = (data || {}) as { public_url?: string }
 
         next[i] = { ...it, progress: 100, publicUrl: public_url }
         setItems([...next])
