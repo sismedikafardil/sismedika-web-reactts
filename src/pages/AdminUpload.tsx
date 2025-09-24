@@ -25,6 +25,7 @@ export default function AdminUpload() {
   const [uploading, setUploading] = useState(false)
   const [allSuccess, setAllSuccess] = useState(false)
   const [sessionRefreshed, setSessionRefreshed] = useState(false)
+  const [skippedCount, setSkippedCount] = useState(0)
   const browseRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
@@ -61,8 +62,15 @@ export default function AdminUpload() {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? [])
     if (!files.length) return
-    // Filter to images only as requested
-    const images = files.filter((f) => f.type.startsWith('image/'))
+    // Filter to images only (MIME type and common image extensions)
+    const images = files.filter((f) => {
+      if (f.type && f.type.startsWith('image/')) return true
+      const ext = f.name.split('.').pop()?.toLowerCase() ?? ''
+      return ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'svg'].includes(ext)
+    })
+    const skipped = files.length - images.length
+    setSkippedCount(skipped)
+
     const mapped: UploadItem[] = images.map((f) => ({
       id: crypto.randomUUID(),
       file: f,
@@ -236,6 +244,10 @@ export default function AdminUpload() {
                 </div>
               ))}
             </div>
+          )}
+
+          {skippedCount > 0 && (
+            <div className="mt-3 text-sm text-yellow-600">Skipped {skippedCount} non-image file{skippedCount > 1 ? 's' : ''}.</div>
           )}
 
           {/* Success / session refresh indicator */}
