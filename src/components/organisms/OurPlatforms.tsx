@@ -6,6 +6,7 @@ import Accounting from '../molecules/solution/Accounting'
 import His from '../molecules/solution/His'
 import HealthcareMobile from '../molecules/solution/HealthcareMobile'
 import SimServices from '../molecules/solution/SimServices'
+import usePointer from '../../hooks/usePointer'
 
 type Platform = {
   id: string
@@ -45,7 +46,18 @@ export default function OurPlatforms({ className = '' }: { className?: string })
   // Default to Hospital Information (HIS)
   const [active, setActive] = useState<string>('his')
   const reveal = useReveal({ offset: 72, stiffness: 90, damping: 20, stagger: 0.12 })
+  // pointer ref with delegation to child buttons
+  const pointerRef = usePointer({ selector: 'button, [role="button"], a, .btn' })
   const MDiv = motion.div as unknown as (props: ComponentPropsWithoutRef<'div'> & Record<string, unknown>) => JSX.Element
+
+  // merge reveal.ref and pointerRef into a single callback ref
+  const setRefs = (node: HTMLElement | null) => {
+    const r = reveal.ref as React.MutableRefObject<HTMLElement | null> | ((el: Element | null) => void) | null
+    if (typeof r === 'function') r(node)
+    else if (r && 'current' in r) r.current = node
+    const p = pointerRef as React.MutableRefObject<HTMLElement | null> | null
+    if (p) p.current = node
+  }
 
   return (
    <section className={` w-full bg-gradient-to-r from-slate-50 to-sky-50 pt-[3em] pb-0 ${className}`}>
@@ -56,7 +68,7 @@ export default function OurPlatforms({ className = '' }: { className?: string })
         <div className="text-center mb-6">
           <h3 className="text-2xl md:text-3xl font-extrabold">SISMEDIKA platforms for your end-to-end healthcare solution</h3>
         </div>
-        <MDiv ref={reveal.ref} variants={reveal.variants.container} initial="hidden" animate={reveal.inView ? 'show' : 'hidden'} className="flex gap-4 items-center justify-center">
+        <MDiv ref={setRefs} variants={reveal.variants.container} initial="hidden" animate={reveal.inView ? 'show' : 'hidden'} className="flex gap-4 items-center justify-center">
           {PLATFORMS.map((p) => (
             <MDiv key={p.id} variants={reveal.variants.item}>
               <button

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import HeaderBtm from '../organisms/HeaderBtm'
+import usePointer from '../../hooks/usePointer'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
+  // pointer hook for header interactive elements
+  const headerPointer = usePointer({ selector: 'a, button, [role="button"]' })
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -16,7 +19,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`${headerBg} sticky top-0 z-50 transition-colors duration-200`}>
+      <header ref={headerPointer as unknown as import('react').RefObject<HTMLElement>} className={`${headerBg} sticky top-0 z-50 transition-colors duration-200`}>
         <div className="px-[5%] py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-3">
@@ -66,6 +69,7 @@ export default function Header() {
 function LocaleDropdown({ scrolled }: { scrolled: boolean }) {
   const [locale, setLocale] = useState<'en' | 'id'>('en')
   const [open, setOpen] = useState(false)
+  const localeRef = usePointer({ selector: 'button, [role="button"]' })
 
   const toggleOpen = () => setOpen((o) => !o)
   const select = (l: 'en' | 'id') => {
@@ -82,7 +86,7 @@ function LocaleDropdown({ scrolled }: { scrolled: boolean }) {
   const itemHover = scrolled ? 'hover:bg-slate-700' : 'hover:bg-slate-100'
 
   return (
-    <div className="relative">
+    <div className="relative" ref={localeRef as unknown as import('react').RefObject<HTMLDivElement>}>
       <button onClick={toggleOpen} className={btnClass} aria-haspopup="menu" aria-expanded={open}>
         <span className="text-lg">{locale === 'en' ? '🇬🇧' : '🇮🇩'}</span>
         <span className="font-medium">{locale === 'en' ? 'EN' : 'ID'}</span>

@@ -24,8 +24,8 @@ export default function useReveal(opts?: RevealOptions) {
     mass = 1,
     opacityEase = [0.16, 1, 0.3, 1],
     opacityDuration = 0.5,
-    threshold = 0.25,
-    rootMargin = '0px 0px -10% 0px',
+     threshold = 0.3,
+     rootMargin = '0px 0px -30% 0px',
     stagger = 0.14,
   } = opts ?? {}
 

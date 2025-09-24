@@ -3,8 +3,10 @@ import Button from '../atoms/Button'
 import { Title } from '../atoms/typography/Typography'
 import Boxes from '../atoms/Boxes'
 import type { JSX } from 'react'
+import usePointer from '../../hooks/usePointer'
 
 export default function CaseStudies(): JSX.Element {
+  const pointerRef = usePointer({ selector: 'button, [role="button"]' })
   return (
     <section className="w-full py-12 bg-transparent">
       <div className="mx-auto w-full px-6 md:px-[5%]">
@@ -23,7 +25,7 @@ export default function CaseStudies(): JSX.Element {
                 <li>Integrated imaging workflow across facilities</li>
               </ul>
 
-              <div className="mt-6">
+              <div className="mt-6" ref={pointerRef as unknown as import('react').RefObject<HTMLDivElement>}>
                 <Button>View all case studies</Button>
               </div>
             </Boxes>
@@ -33,9 +35,9 @@ export default function CaseStudies(): JSX.Element {
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative w-full max-w-xl">
               <img
-                src={`${import.meta.env.BASE_URL}assets/case-study.png`}
+                src="https://cdn-fardil-2025.s3.us-east-2.amazonaws.com/uploads/case-study.png"
                 onError={(e) => {
-                  ;(e.currentTarget as HTMLImageElement).src = '/assets/case-study.png'
+                  (e.currentTarget as HTMLImageElement).src = "https://cdn-fardil-2025.s3.us-east-2.amazonaws.com/uploads/case-study.png";
                 }}
                 alt="Case study"
                 className="w-full h-auto object-cover rounded-lg shadow-lg"

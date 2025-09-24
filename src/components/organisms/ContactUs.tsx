@@ -2,8 +2,10 @@ import Paragraph from '../atoms/Paragraph'
 import Button from '../atoms/Button'
 import { Title } from '../atoms/typography/Typography'
 import type { JSX } from 'react'
+import usePointer from '../../hooks/usePointer'
 
 export default function ContactUs(): JSX.Element {
+  const pointerRef = usePointer({ selector: 'button, [role="button"]' })
   return (
     <section className="w-full px-6 py-12 bg-slate-900">
       <div className="relative rounded-2xl p-8 md:p-12 overflow-hidden">
@@ -19,7 +21,7 @@ export default function ContactUs(): JSX.Element {
               imaging workflows — book a short call to discuss your use case.
             </Paragraph>
 
-            <div className="mt-6">
+            <div className="mt-6" ref={pointerRef as unknown as import('react').RefObject<HTMLDivElement>}>
               <Button className="bg-emerald-500 hover:bg-emerald-600 text-white">Talk to our team</Button>
             </div>
           </div>

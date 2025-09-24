@@ -1,4 +1,5 @@
 import Typography from '../atoms/typography/Typography'
+import usePointer from '../../hooks/usePointer'
 
 type BannerV1Props = {
   heading?: string
@@ -24,12 +25,13 @@ export default function BannerV1({
   paragraph = `We are your trusted partner for hospitals across Indonesia, delivering seamless digital transformation for better care.`,
   buttonLabel = 'Book a meeting',
   onButtonClick,
-  imageSrc = '/assets/img-banner-01.png',
+  imageSrc = 'https://cdn-fardil-2025.s3.us-east-2.amazonaws.com/uploads/img-banner-01.png',
   imageAlt = 'illustration',
   className = '-mt-8',
 }: BannerV1Props) {
   const safeHeading = truncate(heading, MAX_HEADING)
   const safeParagraph = truncate(paragraph, MAX_PARAGRAPH)
+  const pointerRef = usePointer({ selector: 'button, [role="button"]' })
 
   return (
   <section className={"w-full bg-gradient-to-r from-slate-50 to-sky-50 py-8 " + className}>
@@ -48,13 +50,16 @@ export default function BannerV1({
           )}
 
           <div className="mt-6">
-            <button
-              type="button"
-              onClick={onButtonClick}
-              className="inline-flex items-center gap-3 px-5 py-3 bg-[#29AB9A] hover:bg-[#238d85] text-white rounded-md font-medium shadow-sm transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7b57e6]"
-            >
-              {buttonLabel}
-            </button>
+            {/* attach pointer to the CTA */}
+            <div ref={pointerRef as unknown as import('react').RefObject<HTMLDivElement>}>
+              <button
+                type="button"
+                onClick={onButtonClick}
+                className="inline-flex items-center gap-3 px-5 py-3 bg-[#29AB9A] hover:bg-[#238d85] text-white rounded-md font-medium shadow-sm transition-colors duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7b57e6]"
+              >
+                {buttonLabel}
+              </button>
+            </div>
           </div>
         </div>
 
